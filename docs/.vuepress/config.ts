@@ -9,7 +9,7 @@ export default defineUserConfig({
 })
 
 module.exports = {
-  base: "/doce/",
+  base: "/blog/",
   title: 'rs7.top',
   description: "my doce",
   plugins: [
