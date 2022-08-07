@@ -1,55 +1,90 @@
 import { defineUserConfig } from 'vuepress'
 
-export default defineUserConfig({
-    lang: 'zh-CN',
-    title: 'rs7.top',
-    description: 'kupss的站点',
-})
-
 const { defaultTheme } = require('@vuepress/theme-default')
 
+// 系统默认配置
+export default defineUserConfig({
+  lang: 'zh-CN',
+  description: 'kupss的站点',
+})
+
 module.exports = {
-    theme: defaultTheme({
-        logo: '/images/扇子.png',
-        navbar: [
+  base: "/doce/",
+  title: 'rs7.top',
+  description: "my doce",
+  plugins: [
+  ],
+  theme: defaultTheme({
+    logo: "/images/扇子.png",
+    navbar: [
+      {
+        text: 'Blog',
+        children: [
+          {
+            text: 'Java',
+            link: '/java/about.md'
+          },
+          {
+            text: 'Linux',
+            children:
+              [
+                '/linux/常用命令.md',
+                '/linux/about.md',
+              ],
+          }
+        ],
+      },
+      {
+        text: 'About',
+        link: "/system/about.md",
+      },
+      {
+        text: '语雀',
+        link: 'https://www.yuque.com/kups'
+      }
+    ],
+    sidebar: {
+      '/java/': [
+        {
+          text: 'Java',
+          children: [
             {
-                text: 'Blog',
-                children: [
-                    {
-                        text: 'Java',
-                        children: ['/java/aa.md'],
-                    },
-                    {
-                        text: 'Linux',
-                        children: ['/linux/bb.md'],
-                    }
-                ],
+              text: '总览',
+              collapsible: true,
+              link: '/java/about.md'
             },
             {
-                text: '语雀',
-                link: 'https://www.yuque.com/kups'
-            }
-        ],
-        //   repo:"kupszz",
-        notFound: ["您试图离开主世界", "请勿靠近围栏", "非法闯入", "前方危险⚠️"],
-        backToHome: "返回主世界"
-    }),
-}
+              text: '代码片段',
+              collapsible: true,
+              children: [
+                '/java/code/倒计时.md',
+                '/java/code/多线程.md',
+                '/java/code/接口返回设计.md',
+              ],
+            },
+            {
+              text: 'SpringBoot',
+              collapsible: true,
+              children: [
+                '/java/springboot/init.md'
+              ],
+            },],
+        },
+      ],
+      '/linux/': [
+        {
+          text: 'Linux',
+          children: [
+            '/linux/常用命令.md',
+            '/linux/about.md',
+          ],
 
-const { backToTopPlugin } = require('@vuepress/plugin-back-to-top')
-
-module.exports = {
-  plugins: [
-    backToTopPlugin(),
-  ],
-}
-
-const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
-
-module.exports = {
-  plugins: [
-    docsearchPlugin({
-      // 配置项
-    }),
-  ],
+        },
+      ],
+    },
+    notFound: ["您试图离开主世界", "请勿靠近围栏", "非法闯入", "前方危险⚠️", "临界点"],
+    backToHome: "返回主世界",
+    contributors: false,
+    lastUpdated: true,
+  }),
 }
