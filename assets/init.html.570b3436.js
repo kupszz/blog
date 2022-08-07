@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-2cdc7f2d","path":"/java/springboot/init.html","title":"demo","lang":"en-US","frontmatter":{},"excerpt":"","headers":[],"git":{"updatedTime":1659845627000},"filePathRelative":"java/springboot/init.md"}');export{t as data};
